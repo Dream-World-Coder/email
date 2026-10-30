@@ -44,4 +44,3 @@ run-server: $(SERVER)
 
 run-client: $(CLIENT)
 	./$(CLIENT) 127.0.0.1
-

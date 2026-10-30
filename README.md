@@ -191,4 +191,3 @@ make clean
 # Remove stored data (users + emails)
 rm -rf data/
 ```
-

@@ -1,0 +1,297 @@
+B.Tech. Information Technology
+Internet Technology Laboratory – Individual Assignment
+Project Title
+Design and Development of a Multi-Client Email Service Using C and Network Socket Programming
+Duration: 4 Weeks Mode: Individual Assignment Programming Language: C Primary Technology: TCP/IP Socket Programming Development Assistance: Online LLMs such as Claude are permitted and encouraged Submission: Source Code + Documentation + Test Evidence + Viva/Demonstration
+
+1. Problem Statement
+You are required to individually design and implement a miniature email service using the C programming language and network socket programming.
+The system should consist of a central email server and multiple email clients. Multiple users should be able to register with the server, log in, and communicate with other registered users by sending and receiving emails through the server.
+The project is intended to provide practical understanding of:
+Client-server architecture
+TCP/IP communication
+Socket programming in C
+Concurrent/multiple client handling
+Application-layer communication protocols
+User registration and authentication
+File handling and persistent data storage
+Message formatting and parsing
+Basic networking security considerations
+Debugging and testing of network applications
+The objective is not to reproduce Gmail or another commercial email system. You are expected to develop a small, self-contained educational email service demonstrating the fundamental principles of Internet technology.
+
+2. Learning Objectives
+After completing this assignment, a student should be able to:
+Explain the client-server model.
+Create TCP server and client programs using C.
+Establish and terminate socket connections correctly.
+Design a simple application-layer protocol.
+Handle multiple clients connected to a server.
+Implement user registration and authentication.
+Store and retrieve user and email information.
+Implement basic email operations.
+Handle network and application-level errors.
+Test a distributed application systematically.
+Use an LLM as a programming assistant while critically evaluating its output.
+Explain their own source code during a viva.
+
+3. System Requirements
+Your system must contain at least the following two components:
+A. Email Server
+The server should:
+Start and listen on a configurable TCP port.
+Accept connections from multiple clients.
+Register new users.
+Authenticate existing users.
+Maintain a list/database of registered users.
+Receive email messages from clients.
+Store emails on the server.
+Deliver/retrieve emails for registered users.
+Maintain basic user/session information.
+Handle multiple connected clients.
+Provide appropriate responses for invalid requests.
+Continue running even when one client disconnects or encounters an error.
+B. Email Client
+The client should allow a user to:
+Connect to the server.
+Register a new account.
+Log in using an existing account.
+Compose and send an email.
+Specify one or more recipients.
+Specify a subject.
+Enter a message body.
+View received emails.
+Read a selected email.
+View sent emails.
+Log out/disconnect from the server.
+
+4. Minimum Functional Requirements
+The following functionality is mandatory.
+4.1 User Registration
+A new user should be able to register with information such as:
+Username
+Password
+Email Address
+The server must check whether the username/email address already exists.
+Example:
+REGISTER
+Username: rahul
+Email: rahul@iitlab.local
+Password: ********
+The server should reject duplicate registrations.
+
+4.2 User Login
+A registered user should be able to authenticate with:
+LOGIN
+Username
+Password
+The server should respond appropriately to:
+Valid username/password
+Invalid password
+Non-existent username
+Already active session, if your implementation imposes such a restriction
+
+4.3 Sending Email
+A logged-in user should be able to send an email.
+Example:
+From: alice
+To: bob
+Subject: Internet Technology Lab
+Message:
+Please complete the socket programming experiment.
+The server should verify that the recipient exists.
+If the recipient does not exist, an appropriate error message should be returned.
+
+4.4 Receiving Email
+A user should be able to retrieve received emails from the server.
+At minimum, the client should display:
+Email ID
+Sender
+Subject
+Date/Time
+Read/Unread Status
+The user should be able to select an email and view its complete contents.
+
+4.5 Sent Mail
+The client should provide an option to view emails sent by the logged-in user.
+Example:
+-------- SENT MAIL --------
+
+ID     TO          SUBJECT
+1      bob         Meeting
+2      amit        Lab Assignment
+3      neha        Project Discussion
+
+4.6 Multiple Clients
+The server must support multiple clients.
+At least three clients should be demonstrated simultaneously during the final demonstration.
+The implementation may use an appropriate mechanism such as:
+POSIX threads (pthread)
+select()
+poll()
+Another suitable concurrency mechanism
+The student must explain why the selected mechanism was used.
+
+5. Suggested Application Protocol
+You are required to design a simple application-layer protocol between the client and server.
+For example, your protocol may contain commands such as:
+REGISTER
+LOGIN
+SEND
+INBOX
+READ
+SENT
+LOGOUT
+QUIT
+A possible interaction could be:
+CLIENT → SERVER
+LOGIN|alice|password123
+
+SERVER → CLIENT
+LOGIN_SUCCESS
+Another example:
+CLIENT → SERVER
+SEND|bob|Assignment|Please complete the assignment.
+
+SERVER → CLIENT
+SEND_SUCCESS
+Important: These are examples only. Students are expected to design and document their own protocol.
+The protocol should clearly specify:
+Request format
+Response format
+Field separators
+Error responses
+Message termination mechanism
+Maximum message size
+Handling of special characters
+
+6. Data Storage
+The server must maintain information after a client disconnects.
+Students may use simple file-based storage rather than a database.
+For example:
+users.dat
+users.txt
+mail/
+    alice/
+    bob/
+    amit/
+or another suitable structure.
+The minimum persistent information should include:
+User information
+Username
+Password
+Email Address
+Email information
+Email ID
+Sender
+Recipient
+Subject
+Message Body
+Date/Time
+Read/Unread Status
+Students may choose their own storage design.
+
+7. Technical Requirements
+The project must satisfy the following:
+Programming Language
+The implementation must primarily be written in C.
+Networking
+Use:
+TCP/IP
+and standard socket programming APIs such as:
+socket()
+bind()
+listen()
+accept()
+connect()
+send()
+recv()
+close()
+Students should understand and explain every major networking function used.
+Server
+The server should:
+Create a socket.
+Bind it to an IP address and port.
+Listen for incoming connections.
+Accept clients.
+Handle client requests.
+Send appropriate responses.
+Manage multiple clients.
+Store/retrieve information.
+Client
+The client should:
+Create a socket.
+Connect to the server.
+Authenticate/register.
+Send commands.
+Receive responses.
+Provide a usable menu/interface.
+Close the connection properly.
+
+8. Error Handling
+Your application should gracefully handle situations such as:
+Server unavailable
+Invalid IP address/port
+Connection failure
+Client disconnect
+Invalid username
+Incorrect password
+Duplicate registration
+Sending mail to a non-existent user
+Empty subject/message
+Invalid command
+Malformed request
+File access failure
+Server-side storage failure
+The server should not crash simply because a client sends an invalid request.
+
+11. Deliverables
+Each student must submit the following.
+1. Source Code
+A complete project containing:
+server.c
+client.c
+*.h
+supporting C files
+Makefile (recommended)
+data files/sample data
+Students may organize the project differently if properly documented.
+2. Project Report
+Recommended structure:
+Introduction
+Problem Statement
+Objectives
+System Architecture
+Client-Server Architecture
+Network Protocol Design
+Data Storage Design
+Algorithms/Flowcharts
+Implementation
+Multi-client Handling
+Test Cases
+Test Results
+Screenshots
+AI/LLM Usage
+Limitations
+Security Considerations
+Future Enhancements
+Conclusion
+References
+3. README File
+The README must explain:
+Compilation
+Server execution
+Client execution
+Port number
+Configuration
+Data-file locations
+Example commands
+Known limitations
+Example:
+gcc server.c -o server -lpthread
+gcc client.c -o client
+The exact compilation command will depend on the student's implementation.
+4. Demonstration
+Students must demonstrate the working system to the instructor.
+5. Viva
+Individual viva will be conducted.

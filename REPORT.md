@@ -432,4 +432,3 @@ The project serves as a practical exploration of how Internet communication serv
 4. RFC 5321 — Simple Mail Transfer Protocol (SMTP), J. Klensin, October 2008.
 5. GNU C Library Manual — Socket Interface, https://www.gnu.org/software/libc/manual/
 6. Linux man pages: `socket(2)`, `bind(2)`, `listen(2)`, `accept(2)`, `connect(2)`, `send(2)`, `recv(2)`, `close(2)`, `pthread_create(3)`, `pthread_mutex_lock(3)`.
-

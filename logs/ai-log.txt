@@ -1,0 +1,15 @@
+12. AI Usage Log
+Each student must maintain an AI Usage Log.
+For significant interactions with ChatGPT or another LLM, record:
+
+The purpose is not to penalize AI usage. Instead, students are expected to demonstrate responsible AI-assisted software development.
+
+10. Restrictions on AI Usage
+Students must not:
+Claim that AI-generated code is entirely their own work.
+Submit code that they cannot explain.
+Blindly copy an AI-generated solution without testing it.
+Use AI to fabricate test results.
+Submit fabricated screenshots.
+Ask AI to generate a false project log or false experimental observations.
+Students should critically verify AI-generated information because LLM-generated code can contain errors, insecure practices, or incorrect assumptions.

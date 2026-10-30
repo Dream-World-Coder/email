@@ -55,54 +55,54 @@
 /* ----------------------------------------------------------------
  * Size / capacity constants
  * ---------------------------------------------------------------- */
-#define SERVER_PORT     8888
-#define BUFFER_SIZE     4096
-#define MAX_USERNAME    64
-#define MAX_PASSWORD    64
-#define MAX_EMAIL_ADDR  128
-#define MAX_SUBJECT     256
-#define MAX_BODY        2048
-#define MAX_CLIENTS     64
+#define SERVER_PORT 8888
+#define BUFFER_SIZE 4096
+#define MAX_USERNAME 64
+#define MAX_PASSWORD 64
+#define MAX_EMAIL_ADDR 128
+#define MAX_SUBJECT 256
+#define MAX_BODY 2048
+#define MAX_CLIENTS 64
 
 /* ----------------------------------------------------------------
  * Framing constants
  * ---------------------------------------------------------------- */
-#define FIELD_SEPARATOR  '|'
-#define MSG_TERMINATOR   "\r\n"
+#define FIELD_SEPARATOR '|'
+#define MSG_TERMINATOR "\r\n"
 
 /* ----------------------------------------------------------------
  * Filesystem paths
  * ---------------------------------------------------------------- */
-#define DATA_DIR    "data"
-#define USERS_FILE  "data/users.dat"
+#define DATA_DIR "data"
+#define USERS_FILE "data/users.dat"
 
 /* ----------------------------------------------------------------
  * Command strings (client → server)
  * ---------------------------------------------------------------- */
-#define CMD_REGISTER  "REGISTER"
-#define CMD_LOGIN     "LOGIN"
-#define CMD_SEND      "SEND"
-#define CMD_INBOX     "INBOX"
-#define CMD_READ      "READ"
-#define CMD_SENT      "SENT"
-#define CMD_LOGOUT    "LOGOUT"
-#define CMD_QUIT      "QUIT"
+#define CMD_REGISTER "REGISTER"
+#define CMD_LOGIN "LOGIN"
+#define CMD_SEND "SEND"
+#define CMD_INBOX "INBOX"
+#define CMD_READ "READ"
+#define CMD_SENT "SENT"
+#define CMD_LOGOUT "LOGOUT"
+#define CMD_QUIT "QUIT"
 
 /* ----------------------------------------------------------------
  * Response strings (server → client)
  * ---------------------------------------------------------------- */
-#define RESP_OK            "OK"
-#define RESP_ERR           "ERR"
-#define RESP_REGISTER_OK   "REGISTER_OK"
+#define RESP_OK "OK"
+#define RESP_ERR "ERR"
+#define RESP_REGISTER_OK "REGISTER_OK"
 #define RESP_REGISTER_FAIL "REGISTER_FAIL"
-#define RESP_LOGIN_OK      "LOGIN_OK"
-#define RESP_LOGIN_FAIL    "LOGIN_FAIL"
-#define RESP_SEND_OK       "SEND_OK"
-#define RESP_SEND_FAIL     "SEND_FAIL"
-#define RESP_LOGOUT_OK     "LOGOUT_OK"
-#define RESP_INVALID_CMD   "INVALID_CMD"
+#define RESP_LOGIN_OK "LOGIN_OK"
+#define RESP_LOGIN_FAIL "LOGIN_FAIL"
+#define RESP_SEND_OK "SEND_OK"
+#define RESP_SEND_FAIL "SEND_FAIL"
+#define RESP_LOGOUT_OK "LOGOUT_OK"
+#define RESP_INVALID_CMD "INVALID_CMD"
 #define RESP_NOT_LOGGED_IN "NOT_LOGGED_IN"
-#define RESP_END           "END"
+#define RESP_END "END"
 
 /* ----------------------------------------------------------------
  * Data structures
@@ -110,9 +110,9 @@
 
 /* Registered user record. */
 typedef struct {
-    char username[MAX_USERNAME];
-    char password[MAX_PASSWORD];
-    char email_address[MAX_EMAIL_ADDR];
+  char username[MAX_USERNAME];
+  char password[MAX_PASSWORD];
+  char email_address[MAX_EMAIL_ADDR];
 } User;
 
 /*
@@ -120,13 +120,13 @@ typedef struct {
  *   read_status: 0 = unread, 1 = read.
  */
 typedef struct {
-    int  id;
-    char from[MAX_USERNAME];        /* sender username   */
-    char to[MAX_USERNAME];          /* recipient username */
-    char subject[MAX_SUBJECT];
-    char body[MAX_BODY];
-    char timestamp[32];
-    int  read_status;               /* 0 = unread, 1 = read */
+  int id;
+  char from[MAX_USERNAME]; /* sender username   */
+  char to[MAX_USERNAME];   /* recipient username */
+  char subject[MAX_SUBJECT];
+  char body[MAX_BODY];
+  char timestamp[32];
+  int read_status; /* 0 = unread, 1 = read */
 } Email;
 
 #endif /* PROTOCOL_H */
